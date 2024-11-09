@@ -15,7 +15,7 @@ def askChoice() -> int:
     try:
         return int(input("Your choice: "))
     except ValueError:
-        return 999
+        return -1
 
 
 def main() -> None:
