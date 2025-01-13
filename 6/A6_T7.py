@@ -19,10 +19,10 @@ LOCATIONS: dict[str, str] = {
 def decipherString(Strings: str) -> str:
     Output = []
     for c in Strings:
-        if c in CHAR_ALPHA:
+        try:
             index = CHAR_ALPHA.index(c)
             Output.append(CHAR_ROT[index])
-        else:
+        except ValueError:
             Output.append(c)
     return "".join(Output)
 

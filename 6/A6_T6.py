@@ -7,19 +7,20 @@ CHAR_ROT: str = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
 
 
 def cipherChar(char: str) -> str:
-    if char in CHAR_ALPHA:
+    try:
         index = CHAR_ALPHA.index(char)
         return CHAR_ROT[index]
-    return char
+    except ValueError:
+        return char
 
 
 def cipherWord(word: str) -> str:
     ciphered = ""
     for c in word:
-        if c in CHAR_ALPHA:
+        try:
             index = CHAR_ALPHA.index(c)
-            ciphered += CHAR_ROT[index]
-        else:
+            return CHAR_ROT[index]
+        except KeyError:
             ciphered += c
     return ciphered
 
